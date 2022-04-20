@@ -1,9 +1,9 @@
 import datas from '../../datas.js'
 import Card from '../../components/Card'
-// import DefaultPicture from '../../assets/profile.png'
 import Banner from '../../components/Banner'
 import styled from 'styled-components'
 import home_banner from '../../assets/home_banner.svg'
+import { Link } from 'react-router-dom'
 
 const HomeDiv = styled.div`
   max-width: 1240px;
@@ -24,6 +24,7 @@ const CardsDiv = styled.div`
   align-items: center;
   justify-items: center;
 `
+const CardLink = styled(Link)``
 
 const title = 'Chez vous, partout et ailleurs'
 
@@ -34,12 +35,14 @@ function Home() {
       <BGDiv>
         <CardsDiv>
           {datas.map((profile) => (
-            <Card
-              key={profile.id}
-              houseId={profile.id}
-              cover={profile.cover}
-              title={profile.title}
-            />
+            <CardLink to={`/FicheLogement:${profile.id}`} state={profile}>
+              <Card
+                key={profile.id}
+                houseId={profile.id}
+                cover={profile.cover}
+                title={profile.title}
+              />
+            </CardLink>
           ))}
         </CardsDiv>
       </BGDiv>
