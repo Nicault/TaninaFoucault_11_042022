@@ -3,20 +3,13 @@ import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import red_star from '../../assets/red_star.svg'
 import grey_star from '../../assets/grey_star.svg'
+// import List from '../../components/List'
+import Carousel from '../../components/Carousel'
 
 const PageDiv = styled.div`
   max-width: 1240px;
   margin: auto;
 `
-const FirstBannerDiv = styled.div``
-
-const BannerImg = styled.img`
-  height: 415px;
-  width: 1240px;
-  border-radius: 25px;
-  object-fit: cover;
-`
-
 const SecondBannerDiv = styled.div`
   color: #ff6060;
   margin-top: 30px;
@@ -64,6 +57,7 @@ const ThirdBannerDiv = styled.div`
 
 const TagsDiv = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `
 
 const Tag = styled.p`
@@ -92,10 +86,16 @@ const FourthDiv = styled.div`
 `
 
 const DescriptionBloc = styled.div`
+  position: relative;
   width: 582px;
+  margin-right: 76px;
+  margin-bottom: 42px;
 `
 
 const DescriptionTitle = styled.h2`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
   background-color: #ff6060;
   color: white;
   border-radius: 10px;
@@ -106,13 +106,27 @@ const DescriptionTitle = styled.h2`
   padding-left: 20px;
 `
 
-const DescriptionText = styled.p``
+const DescriptionText = styled.p`
+  transform: translateY(42px);
+  min-height: 249px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  color: #ff6060;
+  padding: 30px 20px;
+  font-size: 18px;
+  line-height: 26px;
+`
 
 const EquipmentsBloc = styled.div`
+  position: relative;
   width: 582px;
+  margin-bottom: 42px;
 `
 
 const EquipmentsTitle = styled.h2`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
   background-color: #ff6060;
   color: white;
   border-radius: 10px;
@@ -123,7 +137,16 @@ const EquipmentsTitle = styled.h2`
   padding-left: 20px;
 `
 
-const EquipmentsList = styled.ul``
+const EquipmentsList = styled.ul`
+  transform: translateY(42px);
+  min-height: 249px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  color: #ff6060;
+  padding: 30px 20px;
+  font-size: 18px;
+  line-height: 26px;
+`
 
 const EquipementsElement = styled.li``
 
@@ -135,9 +158,13 @@ function FicheLogement(props) {
 
   return (
     <PageDiv>
-      <FirstBannerDiv>
+      {/* <FirstBannerDiv>
         <BannerImg src={data.cover} alt={data.title} />
-      </FirstBannerDiv>
+      </FirstBannerDiv> */}
+      <Carousel
+        src={data.pictures[2]}
+        nbOfPictures={data.pictures.length}
+      ></Carousel>
       <SecondBannerDiv>
         <TitleDiv>
           <Title>{data.title}</Title>
@@ -175,12 +202,16 @@ function FicheLogement(props) {
       <FourthDiv>
         <DescriptionBloc>
           <DescriptionTitle>Description</DescriptionTitle>
-          <DescriptionText></DescriptionText>
+          <DescriptionText>{data.description}</DescriptionText>
         </DescriptionBloc>
         <EquipmentsBloc>
           <EquipmentsTitle>Equipements</EquipmentsTitle>
           <EquipmentsList>
-            <EquipementsElement></EquipementsElement>
+            {data.equipments.map((equipment) => (
+              <EquipementsElement key={`${equipment}-${data.id}`}>
+                {equipment}
+              </EquipementsElement>
+            ))}
           </EquipmentsList>
         </EquipmentsBloc>
       </FourthDiv>

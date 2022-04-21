@@ -9,6 +9,8 @@ const BannerImg = styled.img`
   object-fit: cover;
   border-radius: 25px;
   filter: brightness(0.7);
+  width: 100%;
+  height: 223px;
 `
 const BannerTitle = styled.h1`
   width: 100%;

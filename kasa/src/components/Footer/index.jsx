@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import logoFoot from '../../assets/logoFoot.svg'
 
 const FooterDiv = styled.div`
+  margin-top: 50px;
+
   bottom: 0;
   width: 100%;
   height: 209px;

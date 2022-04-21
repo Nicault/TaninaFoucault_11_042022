@@ -35,9 +35,12 @@ function Home() {
       <BGDiv>
         <CardsDiv>
           {datas.map((profile) => (
-            <CardLink to={`/FicheLogement:${profile.id}`} state={profile}>
+            <CardLink
+              to={`/FicheLogement:${profile.id}`}
+              state={profile}
+              key={profile.id}
+            >
               <Card
-                key={profile.id}
                 houseId={profile.id}
                 cover={profile.cover}
                 title={profile.title}
