@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import red_star from '../../assets/red_star.svg'
@@ -150,11 +150,15 @@ const EquipmentsList = styled.ul`
 
 const EquipementsElement = styled.li``
 
-function FicheLogement(props) {
+function FicheLogement() {
   const location = useLocation()
   const data = location.state
 
   const range = [1, 2, 3, 4, 5]
+
+  const [pic, updatePic] = useState(0)
+
+  const nbOfPictures = data.pictures.length
 
   return (
     <PageDiv>
@@ -162,8 +166,10 @@ function FicheLogement(props) {
         <BannerImg src={data.cover} alt={data.title} />
       </FirstBannerDiv> */}
       <Carousel
-        src={data.pictures[2]}
-        nbOfPictures={data.pictures.length}
+        pic={pic}
+        updatePic={updatePic}
+        nbOfPictures={nbOfPictures}
+        src={data.pictures[pic]}
       ></Carousel>
       <SecondBannerDiv>
         <TitleDiv>
@@ -187,7 +193,7 @@ function FicheLogement(props) {
               <RedStar
                 key={rangeElem.toString()}
                 src={red_star}
-                alt="étoile rouge"
+                alt="étoile pleine"
               />
             ) : (
               <GreyStar

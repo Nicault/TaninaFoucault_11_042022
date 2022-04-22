@@ -2,6 +2,47 @@ import React from 'react'
 import styled from 'styled-components'
 import carouselArrow from '../../assets/carouselArrow.svg'
 
+function Carousel(props) {
+  const handlePrevClick = () => {
+    props.pic > 0
+      ? props.updatePic(props.pic - 1)
+      : props.updatePic(props.nbOfPictures - 1)
+  }
+
+  const handleNextClick = () => {
+    props.pic < props.nbOfPictures - 1
+      ? props.updatePic(props.pic + 1)
+      : props.updatePic(0)
+  }
+
+  const moreThanOne = props.nbOfPictures > 1
+  console.log(moreThanOne)
+
+  console.log(props.pic)
+  return (
+    <BannerDiv>
+      {moreThanOne && (
+        <PrevArrowButton onClick={() => handlePrevClick()}>
+          <Arrow src={carouselArrow} alt="Précédent" />
+        </PrevArrowButton>
+      )}
+      <BannerImage src={props.src} alt="Logement" />
+      {moreThanOne && (
+        <Nth>
+          {props.pic + 1}/{props.nbOfPictures}
+        </Nth>
+      )}
+      {moreThanOne && (
+        <NextArrowButton onClick={() => handleNextClick()}>
+          <Arrow src={carouselArrow} alt="Suivant" />
+        </NextArrowButton>
+      )}
+    </BannerDiv>
+  )
+}
+
+export default Carousel
+
 const BannerDiv = styled.div`
   position: relative;
 `
@@ -44,22 +85,3 @@ const Nth = styled.p`
   color: white;
   font-size: 18px;
 `
-
-function Carousel(props) {
-  return (
-    <BannerDiv>
-      <PrevArrowButton>
-        <Arrow src={carouselArrow} alt="Précédent" />
-      </PrevArrowButton>
-      <BannerImage src={props.src} alt="Logement" />
-      <Nth>
-        {props.actualPicture}/{props.nbOfPictures}
-      </Nth>
-      <NextArrowButton>
-        <Arrow src={carouselArrow} alt="Suivant" />
-      </NextArrowButton>
-    </BannerDiv>
-  )
-}
-
-export default Carousel
