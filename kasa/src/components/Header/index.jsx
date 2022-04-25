@@ -1,34 +1,62 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-
 import logo from '../../assets/logo.svg'
 
 const HeaderDiv = styled.div`
+  width: 100%;
   margin: 40px auto 60px auto;
   max-width: 1240px;
   height: 68px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 727px) {
+    margin: 20px auto;
+  }
 `
 const HeaderImg = styled.img`
   height: 68px;
+
+  @media screen and (max-width: 727px) {
+    height: 47px;
+  }
 `
-const HeaderNav = styled.nav``
-const HeaderLink = styled(Link)`
-  color: #ff6060;
+
+const HeaderNav = styled.nav`
   font-size: 24px;
-  fonct-weight: 500px;
+
+  @media screen and (max-width: 727px) {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+`
+
+const HeaderLink = styled(NavLink)`
+  color: #ff6060;
   margin-left: 57px;
+
+  @media screen and (max-width: 727px) {
+    margin-left: 10px;
+  }
 `
 
 function Header() {
   return (
     <HeaderDiv>
       <HeaderImg src={logo} alt="Logo" />
-      <HeaderNav>
-        <HeaderLink to="/">Accueil</HeaderLink>
-        <HeaderLink to="/APropos">A propos</HeaderLink>
+
+      <HeaderNav className="headerNav">
+        <HeaderLink className="headerLink" activeclassname="active" to="/">
+          Accueil
+        </HeaderLink>
+        <HeaderLink
+          className="headerLink"
+          activeclassname="active"
+          to="/APropos"
+        >
+          A propos
+        </HeaderLink>
       </HeaderNav>
     </HeaderDiv>
   )

@@ -14,11 +14,7 @@ function Carousel(props) {
       ? props.updatePic(props.pic + 1)
       : props.updatePic(0)
   }
-
   const moreThanOne = props.nbOfPictures > 1
-  console.log(moreThanOne)
-
-  console.log(props.pic)
   return (
     <BannerDiv>
       {moreThanOne && (
@@ -44,14 +40,27 @@ function Carousel(props) {
 export default Carousel
 
 const BannerDiv = styled.div`
+  // max-width: 1240px;
+  margin: auto;
   position: relative;
+  height: 415px;
+  object-fit: cover;
+
+  @media screen and (max-width: 727px) {
+    height: 255px;
+  }
 `
 
 const BannerImage = styled.img`
   height: 415px;
-  width: 1240px;
+  width: 100%;
   border-radius: 25px;
   object-fit: cover;
+
+  @media screen and (max-width: 727px) {
+    border-radius: 10px;
+    height: 255px;
+  }
 `
 const PrevArrowButton = styled.button`
   display: flex;
@@ -63,6 +72,10 @@ const PrevArrowButton = styled.button`
   top: 0;
   left: 0;
   padding: 0 25px;
+
+  @media screen and (max-width: 727px) {
+    padding: 0 6px 0 20px;
+  }
 `
 
 const NextArrowButton = styled.button`
@@ -74,8 +87,16 @@ const NextArrowButton = styled.button`
   top: 0;
   right: 0;
   padding: 0 25px;
+
+  @media screen and (max-width: 727px) {
+    padding: 0 6px 0 20px;
+  }
 `
-const Arrow = styled.img``
+const Arrow = styled.img`
+  @media screen and (max-width: 727px) {
+    height: 20px;
+  }
+`
 
 const Nth = styled.p`
   position: absolute;
@@ -83,5 +104,8 @@ const Nth = styled.p`
   width: 100%;
   text-align: center;
   color: white;
-  font-size: 18px;
+
+  @media screen and (max-width: 727px) {
+    display: none;
+  }
 `

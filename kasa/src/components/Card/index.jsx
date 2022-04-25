@@ -6,10 +6,15 @@ const CardDiv = styled.div`
   height: 340px;
   width: 340px;
   position: relative;
+
+  @media screen and (max-width: 727px) {
+    width: 335px;
+    height: 255px;
+  }
 `
 const CardImg = styled.img`
-  height: 340px;
-  width: 340px;
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
   object-fit: cover;
 `
@@ -18,7 +23,6 @@ const CardTitle = styled.h2`
   position: absolute;
   bottom: 0px;
   margin: 20px;
-  font-size: 18px;
   color: white;
 `
 

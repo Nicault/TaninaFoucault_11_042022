@@ -1,37 +1,92 @@
 import datas from '../../datas.js'
 import Card from '../../components/Card'
-import Banner from '../../components/Banner'
 import styled from 'styled-components'
 import home_banner from '../../assets/home_banner.svg'
 import { Link } from 'react-router-dom'
 
-const HomeDiv = styled.div`
+const HomePage = styled.div`
   max-width: 1240px;
   margin: auto;
+  margin-top: 0;
+  margin-bottom: 50px;
+  @media screen and (max-width: 727px) {
+    margin-bottom: 30px;
+  }
+`
+
+const BannerDiv = styled.div`
+  height: 223px;
+  margin-bottom: 40px;
+  position: relative;
+
+  @media screen and (max-width: 727px) {
+    height: 111px;
+  }
+`
+const BannerImg = styled.img`
+  object-fit: cover;
+  border-radius: 25px;
+  filter: brightness(0.7);
+  width: 100%;
+  height: 223px;
+
+  @media screen and (max-width: 727px) {
+    height: 111px;
+    border-radius: 10px;
+  }
+`
+const BannerTitle = styled.h1`
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: white;
+
+  @media screen and (max-width: 727px) {
+    width: 217px;
+    font-size: 24px;
+    text-align: left;
+    margin-left: 16px;
+  }
 `
 
 const BGDiv = styled.div`
   background-color: #f7f7f7;
   border-radius: 25px;
-  margin-top: 43px;
   padding: 56px 50px;
+
+  @media screen and (max-width: 727px) {
+    background-color: white;
+    padding: 0;
+  }
 `
 
 const CardsDiv = styled.div`
   display: grid;
   gap: 60px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   align-items: center;
   justify-items: center;
+
+  @media screen and (max-width: 727px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 `
 const CardLink = styled(Link)``
 
-const title = 'Chez vous, partout et ailleurs'
-
 function Home() {
+  const title = 'Chez vous, partout et ailleurs'
+
   return (
-    <HomeDiv>
-      <Banner bg={home_banner} txt={title} />
+    <HomePage>
+      <BannerDiv>
+        <BannerImg src={home_banner} alt="Bannière" />
+        <BannerTitle>{title}</BannerTitle>
+      </BannerDiv>
       <BGDiv>
         <CardsDiv>
           {datas.map((profile) => (
@@ -49,7 +104,7 @@ function Home() {
           ))}
         </CardsDiv>
       </BGDiv>
-    </HomeDiv>
+    </HomePage>
   )
 }
 

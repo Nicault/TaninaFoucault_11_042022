@@ -1,15 +1,43 @@
-// import { useState } from 'react'
 import a_propos_banner from '../../assets/a_propos_banner.svg'
-import Banner from '../../components/Banner'
+// import mobile_banner from '../../assets/mobile_banner.svg'
 import styled from 'styled-components'
-import List from '../../components/List'
+import Collapse from '../../components/Collapse'
 
-const AProposDiv = styled.div`
+const AProposPage = styled.div`
   max-width: 1240px;
   margin: auto;
+  margin-top: 0;
+`
+const BannerDiv = styled.div`
+  height: 223px;
+  position: relative;
+  margin-bottom: 31px;
+`
+const BannerImg = styled.img`
+  object-fit: cover;
+  border-radius: 25px;
+  filter: brightness(0.7);
+  width: 100%;
+  height: 223px;
+
+  @media screen and (max-width: 727px) {
+    border-radius: 10px;
+    object-position: 100% 20%;
+  }
 `
 const BGDiv = styled.div`
-  padding: 33px 140px;
+  padding: 30px 60px;
+  @media screen and (max-width: 727px) {
+    padding: 0;
+    padding-bottom: 50px;
+  }
+`
+
+const TextContent = styled.p`
+  @media screen and (max-width: 727px) {
+    font-size: 12px;
+    padding-bottom: 52px;
+  }
 `
 
 const bloc_list = [
@@ -33,14 +61,20 @@ const bloc_list = [
 
 function APropos() {
   return (
-    <AProposDiv>
-      <Banner bg={a_propos_banner} />
+    <AProposPage>
+      <BannerDiv>
+        <BannerImg src={a_propos_banner} alt="Bannière" />
+      </BannerDiv>
       <BGDiv>
         {bloc_list.map((element) => (
-          <List key={element.title} title={element.title} text={element.text} />
+          <Collapse
+            key={element.title}
+            title={element.title}
+            content={<TextContent>{element.text}</TextContent>}
+          />
         ))}
       </BGDiv>
-    </AProposDiv>
+    </AProposPage>
   )
 }
 

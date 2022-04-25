@@ -14,16 +14,32 @@ const ErrorTitle = styled.h1`
   margin-top: 100px;
   font-weight: 700;
   font-size: 288px;
+
+  @media screen and (max-width: 727px) {
+    height: auto;
+    font-size: 96px;
+  }
 `
 const ErrorText = styled.p`
   font-size: 36px;
   margin-top: 60px;
+
+  @media screen and (max-width: 727px) {
+    font-size: 18px;
+    margin-top: 10px;
+  }
 `
 const ErrorLink = styled(Link)`
   margin-top: 182px;
   margin-bottom: 159px;
   font-size: 18px;
   color: #ff6060;
+  text-decoration: underline;
+
+  @media screen and (max-width: 727px) {
+    font-size: 14px;
+    margin-top: 133px;
+  }
 `
 
 function Error() {
