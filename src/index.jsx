@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  HashRouter,
+} from 'react-router-dom'
 import './style.css'
 
 import Header from './components/Header'
@@ -28,18 +33,20 @@ const root = ReactDOM.createRoot(container)
 root.render(
   <React.StrictMode>
     <Router>
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/APropos" element={<APropos />}></Route>
-        <Route
-          path="/FicheLogement:houseId"
-          element={<FicheLogement />}
-        ></Route>
-        <Route path="*" element={<Error />}></Route>
-      </Routes>
-      <Footer />
+      <HashRouter basename="/">
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/APropos" element={<APropos />}></Route>
+          <Route
+            path="/FicheLogement:houseId"
+            element={<FicheLogement />}
+          ></Route>
+          <Route path="*" element={<Error />}></Route>
+        </Routes>
+        <Footer />
+      </HashRouter>
     </Router>
   </React.StrictMode>
 )
