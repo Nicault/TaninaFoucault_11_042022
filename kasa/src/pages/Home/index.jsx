@@ -1,16 +1,49 @@
 import datas from '../../datas.js'
 import Card from '../../components/Card'
 import styled from 'styled-components'
+// import Banner from '../../components/Banner/index.jsx'
 import home_banner from '../../assets/home_banner.svg'
 import { Link } from 'react-router-dom'
 
+const CardLink = styled(Link)``
+
+function Home() {
+  const title = 'Chez vous, partout et ailleurs'
+
+  return (
+    <HomePage>
+      <BannerDiv>
+        <BannerImg src={home_banner} alt="Bannière" />
+        <BannerTitle>{title}</BannerTitle>
+      </BannerDiv>
+      <BGDiv>
+        <CardsDiv>
+          {datas.map((profile) => (
+            <CardLink
+              to={`/FicheLogement:${profile.id}`}
+              state={profile}
+              key={profile.id}
+            >
+              <Card
+                houseId={profile.id}
+                cover={profile.cover}
+                title={profile.title}
+              />
+            </CardLink>
+          ))}
+        </CardsDiv>
+      </BGDiv>
+    </HomePage>
+  )
+}
+
+export default Home
+
 const HomePage = styled.div`
   max-width: 1240px;
-  margin: auto;
-  margin-top: 0;
-  margin-bottom: 50px;
+  margin: 0 30px 50px 30px;
   @media screen and (max-width: 727px) {
-    margin-bottom: 30px;
+    margin: 0 20px 30px 20px;
   }
 `
 
@@ -58,6 +91,7 @@ const BGDiv = styled.div`
   padding: 56px 50px;
 
   @media screen and (max-width: 727px) {
+    width: auto;
     background-color: white;
     padding: 0;
   }
@@ -76,36 +110,3 @@ const CardsDiv = styled.div`
     gap: 20px;
   }
 `
-const CardLink = styled(Link)``
-
-function Home() {
-  const title = 'Chez vous, partout et ailleurs'
-
-  return (
-    <HomePage>
-      <BannerDiv>
-        <BannerImg src={home_banner} alt="Bannière" />
-        <BannerTitle>{title}</BannerTitle>
-      </BannerDiv>
-      <BGDiv>
-        <CardsDiv>
-          {datas.map((profile) => (
-            <CardLink
-              to={`/FicheLogement:${profile.id}`}
-              state={profile}
-              key={profile.id}
-            >
-              <Card
-                houseId={profile.id}
-                cover={profile.cover}
-                title={profile.title}
-              />
-            </CardLink>
-          ))}
-        </CardsDiv>
-      </BGDiv>
-    </HomePage>
-  )
-}
-
-export default Home

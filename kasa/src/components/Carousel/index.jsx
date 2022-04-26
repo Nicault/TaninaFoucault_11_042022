@@ -44,7 +44,6 @@ const BannerDiv = styled.div`
   margin: auto;
   position: relative;
   height: 415px;
-  object-fit: cover;
 
   @media screen and (max-width: 727px) {
     height: 255px;
@@ -55,11 +54,12 @@ const BannerImage = styled.img`
   height: 415px;
   width: 100%;
   border-radius: 25px;
-  object-fit: cover;
+  object-fit: none;
 
   @media screen and (max-width: 727px) {
     border-radius: 10px;
     height: 255px;
+    object-fit: cover;
   }
 `
 const PrevArrowButton = styled.button`

@@ -4,6 +4,31 @@ import arrow from '../../assets/arrow.svg'
 
 import { useState } from 'react'
 
+function Collapse({ title, content }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => {
+    isOpen ? setIsOpen(false) : setIsOpen(true)
+  }
+  return (
+    <CollapseDiv>
+      <CollapseTitle>
+        {title}
+        <CollapseButton type="button" onClick={() => toggle()}>
+          <CollapseImg src={arrow} alt="Ouvir" isOpen={isOpen} />
+        </CollapseButton>
+      </CollapseTitle>
+      <CollapseContent isOpen={isOpen}>{content}</CollapseContent>
+    </CollapseDiv>
+  )
+}
+
+// Collapse.propTypes = {
+//   title: PropTypes.object,
+//   text: PropTypes.string,
+// }
+
+export default Collapse
+
 const CollapseDiv = styled.div`
   width: 100%;
   font-size: 24px;
@@ -77,28 +102,3 @@ const CollapseContent = styled.div`
 
   ${({ isOpen }) => !isOpen && `display:none`}
 `
-
-function Collapse({ title, content }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggle = () => {
-    isOpen ? setIsOpen(false) : setIsOpen(true)
-  }
-  return (
-    <CollapseDiv>
-      <CollapseTitle>
-        {title}
-        <CollapseButton type="button" onClick={() => toggle()}>
-          <CollapseImg src={arrow} alt="Ouvir" isOpen={isOpen} />
-        </CollapseButton>
-      </CollapseTitle>
-      <CollapseContent isOpen={isOpen}>{content}</CollapseContent>
-    </CollapseDiv>
-  )
-}
-
-// Collapse.propTypes = {
-//   title: PropTypes.object,
-//   text: PropTypes.string,
-// }
-
-export default Collapse

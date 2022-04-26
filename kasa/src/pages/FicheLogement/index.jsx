@@ -93,8 +93,12 @@ export default FicheLogement
 const PageDiv = styled.div`
   max-width: 1240px;
   width: 100%;
-  margin: auto;
   margin-top: 0;
+  padding: 0 30px;
+
+  @media screen and (max-width: 727px) {
+    padding: 0 20px;
+  }
 `
 
 const FirstDiv = styled.div`

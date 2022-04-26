@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+function Error() {
+  return (
+    <ErrorDiv>
+      <ErrorTitle>404</ErrorTitle>
+      <ErrorText>Oups! La page que vous demandez n'existe pas.</ErrorText>
+      <ErrorLink to="/">Retourner sur la page d’accueil</ErrorLink>
+    </ErrorDiv>
+  )
+}
+
+export default Error
+
 const ErrorDiv = styled.div`
   margin: auto;
   max-width: 1240px;
@@ -41,15 +53,3 @@ const ErrorLink = styled(Link)`
     margin-top: 133px;
   }
 `
-
-function Error() {
-  return (
-    <ErrorDiv>
-      <ErrorTitle>404</ErrorTitle>
-      <ErrorText>Oups! La page que vous demandez n'existe pas.</ErrorText>
-      <ErrorLink to="/">Retourner sur la page d’accueil</ErrorLink>
-    </ErrorDiv>
-  )
-}
-
-export default Error
