@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/TaninaFoucault_11_042022/static/css/main.1d8c566a.css",
-    "main.js": "/TaninaFoucault_11_042022/static/js/main.3f56b135.js",
-    "static/media/a_propos_banner.svg": "/TaninaFoucault_11_042022/static/media/a_propos_banner.384308037a0a977234e3b9d138d9aac7.svg",
-    "static/media/mobile_banner.svg": "/TaninaFoucault_11_042022/static/media/mobile_banner.b0fdb1fdfc53ee8fea610d28253326f8.svg",
-    "static/media/home_banner.svg": "/TaninaFoucault_11_042022/static/media/home_banner.bb95764b977cc4097a67ee5993e4f4fc.svg",
-    "static/media/logo.svg": "/TaninaFoucault_11_042022/static/media/logo.bb1c78bdbf97911cf6044e13e0c4f670.svg",
-    "static/media/logoFoot.svg": "/TaninaFoucault_11_042022/static/media/logoFoot.ee689fd9409d1b5a898b4247819d8a00.svg",
+    "main.js": "/TaninaFoucault_11_042022/static/js/main.0cd4f0c7.js",
+    "static/media/a_propos_banner.svg": "/TaninaFoucault_11_042022/static/media/a_propos_banner.21c29d145c9133510f29f90b270149a3.svg",
+    "static/media/mobile_banner.svg": "/TaninaFoucault_11_042022/static/media/mobile_banner.4f342f28a8947f7ee93a4b01a1dfdde9.svg",
+    "static/media/home_banner.svg": "/TaninaFoucault_11_042022/static/media/home_banner.78bb5867a86328554ad913fa428e2485.svg",
+    "static/media/logo.svg": "/TaninaFoucault_11_042022/static/media/logo.3e4c432d7ff1ee4ae1aacb51708ee0c1.svg",
+    "static/media/logoFoot.svg": "/TaninaFoucault_11_042022/static/media/logoFoot.2553fb29683f2c12e44904bd8503bf1b.svg",
     "index.html": "/TaninaFoucault_11_042022/index.html",
-    "static/media/arrow.svg": "/TaninaFoucault_11_042022/static/media/arrow.557045ea3cccdf4a6a60a53481c321e2.svg",
-    "static/media/carouselArrow.svg": "/TaninaFoucault_11_042022/static/media/carouselArrow.88153a5d119c2744ffe34dca1ef843df.svg",
-    "static/media/grey_star.svg": "/TaninaFoucault_11_042022/static/media/grey_star.7e4ba6032d7d80ecc30aa389973cef95.svg",
-    "static/media/red_star.svg": "/TaninaFoucault_11_042022/static/media/red_star.6430150c126a3adf92c132c52c9c7428.svg",
+    "static/media/arrow.svg": "/TaninaFoucault_11_042022/static/media/arrow.9ffeb82f8a4156e52408a8b6da114a34.svg",
+    "static/media/carouselArrow.svg": "/TaninaFoucault_11_042022/static/media/carouselArrow.224e07798ade6bda6e2572adcd9fc9c3.svg",
+    "static/media/grey_star.svg": "/TaninaFoucault_11_042022/static/media/grey_star.06dccca447400012db124c595a41e219.svg",
+    "static/media/red_star.svg": "/TaninaFoucault_11_042022/static/media/red_star.325cf1d54d109e062e0d0468f6412f00.svg",
     "main.1d8c566a.css.map": "/TaninaFoucault_11_042022/static/css/main.1d8c566a.css.map",
-    "main.3f56b135.js.map": "/TaninaFoucault_11_042022/static/js/main.3f56b135.js.map"
+    "main.0cd4f0c7.js.map": "/TaninaFoucault_11_042022/static/js/main.0cd4f0c7.js.map"
   },
   "entrypoints": [
     "static/css/main.1d8c566a.css",
-    "static/js/main.3f56b135.js"
+    "static/js/main.0cd4f0c7.js"
   ]
 }
