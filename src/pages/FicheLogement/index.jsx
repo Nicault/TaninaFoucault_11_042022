@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 import red_star from '../../assets/red_star.svg'
 import grey_star from '../../assets/grey_star.svg'
 import Collapse from '../../components/Collapse'
 import Carousel from '../../components/Carousel'
+import ActualData from '../../hooks/ActualData'
 
 function FicheLogement() {
-  const location = useLocation()
-  const data = location.state
+  // const location = useLocation()
+  // const data = location.state
+
+  const data = ActualData()
+
+  console.log(data)
 
   const range = [1, 2, 3, 4, 5]
 

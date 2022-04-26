@@ -20,7 +20,7 @@ function Home() {
         <CardsDiv>
           {datas.map((profile) => (
             <CardLink
-              to={`/FicheLogement:${profile.id}`}
+              to={`/logement/${profile.id}`}
               state={profile}
               key={profile.id}
             >
