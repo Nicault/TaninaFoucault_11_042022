@@ -1,24 +1,22 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-// import { useLocation } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import red_star from '../../assets/red_star.svg'
 import grey_star from '../../assets/grey_star.svg'
 import Collapse from '../../components/Collapse'
 import Carousel from '../../components/Carousel'
-import ActualData from '../../hooks/ActualData'
+import logements from '../../local-json/logements.json'
 
-function FicheLogement() {
-  // const location = useLocation()
-  // const data = location.state
+function FicheLogement({ id }) {
+  const loadData = [...logements]
+  // const { id } = useParams()
 
-  const data = ActualData()
-
-  console.log(data)
+  const data = loadData.find((element) => element.id === id)
+  // console.log(!data)
 
   const range = [1, 2, 3, 4, 5]
 
   const [pic, updatePic] = useState(0)
-
   const nbOfPictures = data.pictures.length
 
   return (

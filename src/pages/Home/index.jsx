@@ -1,4 +1,5 @@
-import datas from '../../datas.js'
+// import datas from '../../datas.js'
+import logements from '../../local-json/logements.json'
 import Card from '../../components/Card'
 import styled from 'styled-components'
 // import Banner from '../../components/Banner/index.jsx'
@@ -18,16 +19,12 @@ function Home() {
       </BannerDiv>
       <BGDiv>
         <CardsDiv>
-          {datas.map((profile) => (
-            <CardLink
-              to={`/logement/${profile.id}`}
-              state={profile}
-              key={profile.id}
-            >
+          {logements.map((profil) => (
+            <CardLink to={`/${profil.id}`} state={profil} key={profil.id}>
               <Card
-                houseId={profile.id}
-                cover={profile.cover}
-                title={profile.title}
+                houseId={profil.id}
+                cover={profil.cover}
+                title={profil.title}
               />
             </CardLink>
           ))}

@@ -14,7 +14,7 @@ function Header() {
         <HeaderLink
           className="headerLink"
           activeclassname="active"
-          to="/APropos"
+          to="/Apropos"
         >
           A propos
         </HeaderLink>

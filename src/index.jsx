@@ -11,6 +11,18 @@ import Error from './pages/Error'
 import Footer from './components/Footer'
 import ScrollToTop from './hooks/ScrollToTop'
 
+import logements from './local-json/logements.json'
+
+function getIds() {
+  const datas = [...logements]
+  const ids = []
+  for (let data of datas) {
+    ids.push(data.id)
+  }
+  return ids
+}
+const ids = getIds()
+
 const container = document.getElementById('root')
 const root = ReactDOM.createRoot(container)
 root.render(
@@ -21,7 +33,19 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/APropos" element={<APropos />}></Route>
-        <Route path="/logement/:id" element={<FicheLogement />}></Route>
+        {/* <Route path="/:id" element={<FicheLogement />}></Route> */}
+        {ids.map((id) => (
+          <Route
+            key={id}
+            // exact
+            strict
+            path={`/${id}`}
+            element={<FicheLogement id={id} />}
+          >
+            {/* {console.log(id)} */}
+          </Route>
+        ))}
+
         <Route path="*" element={<Error />}></Route>
       </Routes>
       <Footer />
