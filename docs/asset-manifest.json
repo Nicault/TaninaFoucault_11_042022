@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TaninaFoucault_11_042022/static/css/main.1d8c566a.css",
-    "main.js": "/TaninaFoucault_11_042022/static/js/main.ef7a9a4c.js",
+    "main.js": "/TaninaFoucault_11_042022/static/js/main.8d2d646e.js",
     "static/media/a_propos_banner.svg": "/TaninaFoucault_11_042022/static/media/a_propos_banner.21c29d145c9133510f29f90b270149a3.svg",
     "static/media/mobile_banner.svg": "/TaninaFoucault_11_042022/static/media/mobile_banner.4f342f28a8947f7ee93a4b01a1dfdde9.svg",
     "static/media/home_banner.svg": "/TaninaFoucault_11_042022/static/media/home_banner.78bb5867a86328554ad913fa428e2485.svg",
@@ -13,10 +13,10 @@
     "static/media/grey_star.svg": "/TaninaFoucault_11_042022/static/media/grey_star.06dccca447400012db124c595a41e219.svg",
     "static/media/red_star.svg": "/TaninaFoucault_11_042022/static/media/red_star.325cf1d54d109e062e0d0468f6412f00.svg",
     "main.1d8c566a.css.map": "/TaninaFoucault_11_042022/static/css/main.1d8c566a.css.map",
-    "main.ef7a9a4c.js.map": "/TaninaFoucault_11_042022/static/js/main.ef7a9a4c.js.map"
+    "main.8d2d646e.js.map": "/TaninaFoucault_11_042022/static/js/main.8d2d646e.js.map"
   },
   "entrypoints": [
     "static/css/main.1d8c566a.css",
-    "static/js/main.ef7a9a4c.js"
+    "static/js/main.8d2d646e.js"
   ]
 }

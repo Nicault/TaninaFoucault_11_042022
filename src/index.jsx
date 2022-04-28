@@ -9,11 +9,11 @@ import APropos from './pages/APropos'
 import FicheLogement from './pages/FicheLogement'
 import Error from './pages/Error'
 import Footer from './components/Footer'
-import ScrollToTop from './hooks/ScrollToTop'
+import ScrollToTop from './fonctions/ScrollToTop'
 
 import logements from './local-json/logements.json'
 
-function getIds() {
+function GetIds() {
   const datas = [...logements]
   const ids = []
   for (let data of datas) {
@@ -21,7 +21,7 @@ function getIds() {
   }
   return ids
 }
-const ids = getIds()
+const ids = GetIds()
 
 const container = document.getElementById('root')
 const root = ReactDOM.createRoot(container)
@@ -41,11 +41,8 @@ root.render(
             strict
             path={`/${id}`}
             element={<FicheLogement id={id} />}
-          >
-            {/* {console.log(id)} */}
-          </Route>
+          ></Route>
         ))}
-
         <Route path="*" element={<Error />}></Route>
       </Routes>
       <Footer />

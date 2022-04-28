@@ -69,7 +69,8 @@ const AProposPage = styled.div`
   margin: 0 30px;
 
   @media screen and (max-width: 727px) {
-    margin: 0 20px;
+    width: 100%;
+    padding: 0 20px;
   }
 `
 const BannerDiv = styled.div`

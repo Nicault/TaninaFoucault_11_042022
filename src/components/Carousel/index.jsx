@@ -2,19 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import carouselArrow from '../../assets/carouselArrow.svg'
 
-function Carousel(props) {
+function Carousel({ currentPic, updatePic, nbOfPictures, src }) {
   const handlePrevClick = () => {
-    props.pic > 0
-      ? props.updatePic(props.pic - 1)
-      : props.updatePic(props.nbOfPictures - 1)
+    currentPic > 0 ? updatePic(currentPic - 1) : updatePic(nbOfPictures - 1)
   }
 
   const handleNextClick = () => {
-    props.pic < props.nbOfPictures - 1
-      ? props.updatePic(props.pic + 1)
-      : props.updatePic(0)
+    currentPic < nbOfPictures - 1 ? updatePic(currentPic + 1) : updatePic(0)
   }
-  const moreThanOne = props.nbOfPictures > 1
+
+  const moreThanOne = nbOfPictures > 1
+
   return (
     <BannerDiv>
       {moreThanOne && (
@@ -22,10 +20,10 @@ function Carousel(props) {
           <Arrow src={carouselArrow} alt="Précédent" />
         </PrevArrowButton>
       )}
-      <BannerImage src={props.src} alt="Logement" />
+      <BannerImage src={src} alt="Logement" />
       {moreThanOne && (
         <Nth>
-          {props.pic + 1}/{props.nbOfPictures}
+          {currentPic + 1}/{nbOfPictures}
         </Nth>
       )}
       {moreThanOne && (

@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-function Card(props) {
+function Card({ cover, title }) {
   return (
     <CardDiv>
-      <CardImg src={props.cover} alt="Logement" />
-      <CardTitle>{props.title}</CardTitle>
+      <CardImg src={cover} alt="Logement" />
+      <CardTitle>{title}</CardTitle>
     </CardDiv>
   )
 }
@@ -25,9 +25,8 @@ const CardDiv = styled.div`
   position: relative;
 
   @media screen and (max-width: 727px) {
-    // max-width: 335px;
     width: 100%;
-    height: 255px;
+    height: auto;
   }
 `
 const CardImg = styled.img`

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-// import { useParams } from 'react-router-dom'
 import red_star from '../../assets/red_star.svg'
 import grey_star from '../../assets/grey_star.svg'
 import Collapse from '../../components/Collapse'
@@ -9,23 +8,20 @@ import logements from '../../local-json/logements.json'
 
 function FicheLogement({ id }) {
   const loadData = [...logements]
-  // const { id } = useParams()
-
   const data = loadData.find((element) => element.id === id)
-  // console.log(!data)
 
   const range = [1, 2, 3, 4, 5]
 
-  const [pic, updatePic] = useState(0)
+  const [currentPic, updatePic] = useState(0)
   const nbOfPictures = data.pictures.length
 
   return (
     <PageDiv>
       <Carousel
-        pic={pic}
+        currentPic={currentPic}
         updatePic={updatePic}
         nbOfPictures={nbOfPictures}
-        src={data.pictures[pic]}
+        src={data.pictures[currentPic]}
       ></Carousel>
       <FirstDiv>
         <SecondDiv>

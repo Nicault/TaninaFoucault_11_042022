@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import arrow from '../../assets/arrow.svg'
 
@@ -21,11 +20,6 @@ function Collapse({ title, content }) {
     </CollapseDiv>
   )
 }
-
-// Collapse.propTypes = {
-//   title: PropTypes.object,
-//   text: PropTypes.string,
-// }
 
 export default Collapse
 

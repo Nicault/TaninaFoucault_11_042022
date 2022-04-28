@@ -1,4 +1,3 @@
-// import datas from '../../datas.js'
 import logements from '../../local-json/logements.json'
 import Card from '../../components/Card'
 import styled from 'styled-components'
@@ -9,23 +8,17 @@ import { Link } from 'react-router-dom'
 const CardLink = styled(Link)``
 
 function Home() {
-  const title = 'Chez vous, partout et ailleurs'
-
   return (
     <HomePage>
       <BannerDiv>
         <BannerImg src={home_banner} alt="Bannière" />
-        <BannerTitle>{title}</BannerTitle>
+        <BannerTitle>Chez vous, partout et ailleurs</BannerTitle>
       </BannerDiv>
       <BGDiv>
         <CardsDiv>
           {logements.map((profil) => (
-            <CardLink to={`/${profil.id}`} state={profil} key={profil.id}>
-              <Card
-                houseId={profil.id}
-                cover={profil.cover}
-                title={profil.title}
-              />
+            <CardLink to={`/${profil.id}`} key={profil.id}>
+              <Card cover={profil.cover} title={profil.title} />
             </CardLink>
           ))}
         </CardsDiv>
@@ -88,7 +81,6 @@ const BGDiv = styled.div`
   padding: 56px 50px;
 
   @media screen and (max-width: 727px) {
-    width: auto;
     background-color: white;
     padding: 0;
   }
