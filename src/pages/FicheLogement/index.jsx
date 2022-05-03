@@ -39,7 +39,7 @@ function FicheLogement() {
       {!data ? (
         <Error />
       ) : (
-        <span>
+        <ContentDiv>
           <Carousel
             currentPic={currentPic}
             updatePic={updatePic}
@@ -106,7 +106,7 @@ function FicheLogement() {
               ></Collapse>
             </EquipmentsBloc>
           </FourthDiv>
-        </span>
+        </ContentDiv>
       )}
     </PageDiv>
   )
@@ -123,6 +123,13 @@ const PageDiv = styled.div`
   @media screen and (max-width: 727px) {
     padding: 0 20px;
   }
+`
+
+const ContentDiv = styled.div`
+  max-width: 1240px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `
 
 const FirstDiv = styled.div`
