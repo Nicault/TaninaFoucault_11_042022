@@ -5,84 +5,109 @@ import grey_star from '../../assets/grey_star.svg'
 import Collapse from '../../components/Collapse'
 import Carousel from '../../components/Carousel'
 import logements from '../../local-json/logements.json'
+import { useParams } from 'react-router-dom'
+import Error from '../../components/Error'
 
-function FicheLogement({ id }) {
+function FicheLogement() {
+  const { id } = useParams()
   const loadData = [...logements]
-  const data = loadData.find((element) => element.id === id)
+
+  function findData() {
+    const result = loadData.find((element) => element.id === id)
+    if (result) return result
+    else return undefined
+  }
+
+  const data = findData()
 
   const range = [1, 2, 3, 4, 5]
 
   const [currentPic, updatePic] = useState(0)
-  const nbOfPictures = data.pictures.length
+
+  function howManyPicture() {
+    if (data) {
+      return data.pictures.length
+    } else {
+      return 0
+    }
+  }
+
+  const nbOfPictures = howManyPicture()
 
   return (
     <PageDiv>
-      <Carousel
-        currentPic={currentPic}
-        updatePic={updatePic}
-        nbOfPictures={nbOfPictures}
-        src={data.pictures[currentPic]}
-      ></Carousel>
-      <FirstDiv>
-        <SecondDiv>
-          <TitleDiv>
-            <Title>{data.title}</Title>
-            <Location>{data.location}</Location>
-          </TitleDiv>
-          <TagsDiv>
-            {data.tags.map((tag) => (
-              <Tag key={`${tag}-${data.id}`}>{tag}</Tag>
-            ))}
-          </TagsDiv>
-        </SecondDiv>
-        <ThirdDiv>
-          <HostDiv>
-            <HostName>{data.host.name}</HostName>
-            <HostPic src={data.host.picture} alt={data.host.name} />
-          </HostDiv>
-
-          <StarsDiv>
-            {range.map((rangeElem) =>
-              data.rating >= rangeElem ? (
-                <RedStar
-                  key={rangeElem.toString()}
-                  src={red_star}
-                  alt="étoile pleine"
-                />
-              ) : (
-                <GreyStar
-                  key={rangeElem.toString()}
-                  src={grey_star}
-                  alt="étoile grisée"
-                />
-              )
-            )}
-          </StarsDiv>
-        </ThirdDiv>
-      </FirstDiv>
-
-      <FourthDiv>
-        <DescriptionBloc>
-          <Collapse
-            title={<CollapseTitle>Description</CollapseTitle>}
-            content={<DescriptionText>{data.description}</DescriptionText>}
-          ></Collapse>
-        </DescriptionBloc>
-        <EquipmentsBloc>
-          <Collapse
-            title={<CollapseTitle>Equipements</CollapseTitle>}
-            content={
-              <EquipmentsList>
-                {data.equipments.map((equipment) => (
-                  <EquipementsElement key={`${equipment}-${data.id}`}>
-                    {equipment}
-                  </EquipementsElement>
+      {!data ? (
+        <Error />
+      ) : (
+        <span>
+          <Carousel
+            currentPic={currentPic}
+            updatePic={updatePic}
+            nbOfPictures={nbOfPictures}
+            src={data.pictures[currentPic]}
+          ></Carousel>
+          <FirstDiv>
+            <SecondDiv>
+              <TitleDiv>
+                <Title>{data.title}</Title>
+                <Location>{data.location}</Location>
+              </TitleDiv>
+              <TagsDiv>
+                {data.tags.map((tag) => (
+                  <Tag key={`${tag}-${data.id}`}>{tag}</Tag>
                 ))}
-              </EquipmentsList>
-            }
-          ></Collapse>
-        </EquipmentsBloc>
-      </FourthDiv>
+              </TagsDiv>
+            </SecondDiv>
+            <ThirdDiv>
+              <HostDiv>
+                <HostName>{data.host.name}</HostName>
+                <HostPic src={data.host.picture} alt={data.host.name} />
+              </HostDiv>
+
+              <StarsDiv>
+                {range.map((rangeElem) =>
+                  data.rating >= rangeElem ? (
+                    <RedStar
+                      key={rangeElem.toString()}
+                      src={red_star}
+                      alt="étoile pleine"
+                    />
+                  ) : (
+                    <GreyStar
+                      key={rangeElem.toString()}
+                      src={grey_star}
+                      alt="étoile grisée"
+                    />
+                  )
+                )}
+              </StarsDiv>
+            </ThirdDiv>
+          </FirstDiv>
+
+          <FourthDiv>
+            <DescriptionBloc>
+              <Collapse
+                title={<CollapseTitle>Description</CollapseTitle>}
+                content={<DescriptionText>{data.description}</DescriptionText>}
+              ></Collapse>
+            </DescriptionBloc>
+            <EquipmentsBloc>
+              <Collapse
+                title={<CollapseTitle>Equipements</CollapseTitle>}
+                content={
+                  <EquipmentsList>
+                    {data.equipments.map((equipment) => (
+                      <EquipementsElement key={`${equipment}-${data.id}`}>
+                        {equipment}
+                      </EquipementsElement>
+                    ))}
+                  </EquipmentsList>
+                }
+              ></Collapse>
+            </EquipmentsBloc>
+          </FourthDiv>
+        </span>
+      )}
     </PageDiv>
   )
 }

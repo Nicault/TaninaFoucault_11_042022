@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-function Card({ cover, title }) {
+function Card({ linkParam, cover, title }) {
   return (
     <CardDiv>
-      <CardImg src={cover} alt="Logement" />
-      <CardTitle>{title}</CardTitle>
+      <Link to={`/${linkParam}`}>
+        <CardImg src={cover} alt="Logement" />
+        <CardTitle>{title}</CardTitle>
+      </Link>
     </CardDiv>
   )
 }

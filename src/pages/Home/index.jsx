@@ -3,9 +3,6 @@ import Card from '../../components/Card'
 import styled from 'styled-components'
 // import Banner from '../../components/Banner/index.jsx'
 import home_banner from '../../assets/home_banner.svg'
-import { Link } from 'react-router-dom'
-
-const CardLink = styled(Link)``
 
 function Home() {
   return (
@@ -17,9 +14,12 @@ function Home() {
       <BGDiv>
         <CardsDiv>
           {logements.map((profil) => (
-            <CardLink to={`/${profil.id}`} key={profil.id}>
-              <Card cover={profil.cover} title={profil.title} />
-            </CardLink>
+            <Card
+              key={profil.id}
+              linkParam={profil.id}
+              cover={profil.cover}
+              title={profil.title}
+            />
           ))}
         </CardsDiv>
       </BGDiv>

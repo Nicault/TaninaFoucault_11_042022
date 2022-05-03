@@ -7,21 +7,9 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import APropos from './pages/APropos'
 import FicheLogement from './pages/FicheLogement'
-import Error from './pages/Error'
+import Error from './components/Error'
 import Footer from './components/Footer'
-import ScrollToTop from './fonctions/ScrollToTop'
-
-import logements from './local-json/logements.json'
-
-function GetIds() {
-  const datas = [...logements]
-  const ids = []
-  for (let data of datas) {
-    ids.push(data.id)
-  }
-  return ids
-}
-const ids = GetIds()
+import ScrollToTop from './components/ScrollToTop'
 
 const container = document.getElementById('root')
 const root = ReactDOM.createRoot(container)
@@ -33,16 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/APropos" element={<APropos />}></Route>
-        {/* <Route path="/:id" element={<FicheLogement />}></Route> */}
-        {ids.map((id) => (
-          <Route
-            key={id}
-            // exact
-            strict
-            path={`/${id}`}
-            element={<FicheLogement id={id} />}
-          ></Route>
-        ))}
+        <Route path="/:id" element={<FicheLogement />}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
       <Footer />
